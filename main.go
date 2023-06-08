@@ -15,8 +15,8 @@ type handler struct {
 }
 
 type row struct {
-	id        int64
-	createdAt time.Time
+	Id        int64
+	CreatedAt time.Time
 }
 
 func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -38,8 +38,8 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		for rs.Next() {
 			cur := row{}
 			err = rs.Scan(
-				&cur.id,
-				&cur.createdAt,
+				&cur.Id,
+				&cur.CreatedAt,
 			)
 
 			if err != nil {
@@ -47,7 +47,6 @@ func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 				w.Write([]byte("Internal Server Error"))
 				return
 			}
-
 			ret = append(ret, cur)
 		}
 
