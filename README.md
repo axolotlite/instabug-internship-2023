@@ -13,7 +13,11 @@ And exposes itself on port 9090:
 * On PATCH it updates the creation date of the row with the same ID as the one specified in query parameter `id`
 
 Check this golang project in the attachment and create the following:
-- [ ] Dockerfile that build the app and try to make it as lightweight as you can.
+- [x] Dockerfile that build the app and try to make it as lightweight as you can.
+	using multi-stages I've split the build into two stages
+	build (346MB): creating a statically linked binary that should be executed almost anywhere
+	app (13.2MB): which executes the binary using a light weight alpine container
+	!(build image)[images/image_3.png]
 - [ ] Pipeline job (jenkinsfile) to build the app using dockerfile and
 - [ ] reports if any errors happened in the build. The output of the build step should be a docker image pushed to dockerhub or any docker repo you want.
 - [ ] Docker compose file that contains both application and mysql database so you can run the app locally.
@@ -27,4 +31,6 @@ Check this golang project in the attachment and create the following:
 - [ ] Secure your containers as much as you can.
 - [x] Fix a bug in the code that would appear when you test the api (all needed information of api is in the readme file)
 	exported the elements of the struct row
-	![modified struct](images/image_1.png)
+	!(modified struct)[images/image_1.png]
+	then tested the API calls
+	!(api test)[images/image_2.png]
