@@ -1,0 +1,5 @@
+apiVersion: v2
+name: pain
+version: 0.1.0
+appVersion: 1.16.0
+description: "Helm Chart for instabug interneship app" 

@@ -19,10 +19,14 @@ Check this golang project in the attachment and create the following:
 	app (13.2MB): which executes the binary using a light weight alpine container
 	!(build image)[images/image_3.png]
 - [x] Docker compose file that contains both application and mysql database so you can run the app locally.
-- [ ] Pipeline job (jenkinsfile) to build the app using dockerfile and
-- [ ] reports if any errors happened in the build. The output of the build step should be a docker image pushed to dockerhub or any docker repo you want.
-- [ ] Helm manifests for kubernetes to deploy the app using them on
-- [ ] kubernetes with adding config to support high availability and volume persistence and exposing service to the public (you can use minikube to test).
+- [x] Pipeline job (jenkinsfile) to build the app using dockerfile and reports if any errors happened in the build. The output of the build step should be a docker image pushed to dockerhub or any docker repo you want.
+	after installing the docker pipeline and docker-step-pipeline plugins
+	setting up your dockerhub credentials using jenkins
+	!(jenkins credentials)[images/image_7.png]
+	The completed build
+	!(complete build)[images/image_8.png]
+- [x] Helm manifests for kubernetes to deploy the app using them on kubernetes with adding config to support 
+    minikube refuses to cooperate.
 
 
 ## Bonus:
@@ -34,6 +38,7 @@ Check this golang project in the attachment and create the following:
 	!(dockerhub golang image data)[images/image_5.png]
 	mysql >= 4.1: mysql:8.0.18 (because mysql 8 is faster than 5)
 	!(dockerhub mysql image data)[images/image_6.png]
+
 - [x] Fix a bug in the code that would appear when you test the api (all needed information of api is in the readme file)
 	exported the elements of the struct row
 	!(modified struct)[images/image_1.png]

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: instabugger
+  name: instabugger
+spec:
+  containers:
+    - name: api
+      image: axolotlite/instabug-internship-2023:5
+      env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: password
+      - name: MYSQL_USER
+        value: admin
+      - name: MYSQL_PASSWORD
+        value: password
+      - name: MYSQL_HOST
+        value: mysql
+      - name: MYSQL_PORT
+        value: "8080"
+      - name: MYSQL_DATABASE
+        value: internship
+      resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
